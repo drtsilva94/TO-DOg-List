@@ -1,38 +1,41 @@
+// Aguarda o carregamento completo do conteúdo HTML antes de executar o JavaScript
 document.addEventListener('DOMContentLoaded', () => {
-    const taskInput = document.getElementById('taskInput');
-    const addTaskButton = document.getElementById('addTaskButton');
-    const taskList = document.getElementById('taskList');
+    // Seleciona os elementos da página
+    const taskInput = document.getElementById('taskInput'); // Campo de entrada para a nova tarefa
+    const addTaskButton = document.getElementById('addTaskButton'); // Botão para adicionar tarefas
+    const taskList = document.getElementById('taskList'); // Lista onde as tarefas serão exibidas
 
-    // Função para adicionar uma tarefa
+    // Função para adicionar uma nova tarefa
     function addTask() {
-        const taskText = taskInput.value.trim();
-        if (taskText === '') return;
+        const taskText = taskInput.value.trim(); // Obtém o texto da tarefa e remove espaços extras
+        if (taskText === '') return; // Verifica se o campo está vazio, caso sim, a função é interrompida
 
+        // Cria um novo elemento de lista (li) para a tarefa
         const li = document.createElement('li');
         li.innerHTML = `
-            <span>${taskText}</span>
-            <button class="deleteButton">Excluir</button>
+            <span>${taskText}</span> <!-- Exibe o texto da tarefa -->
+            <button class="deleteButton">Excluir</button> <!-- Botão para excluir a tarefa -->
         `;
-        taskList.appendChild(li);
+        taskList.appendChild(li); // Adiciona o item (li) à lista de tarefas
 
-        // Limpar o campo de entrada
+        // Limpa o campo de entrada após adicionar a tarefa
         taskInput.value = '';
     }
 
-    // Adicionar a tarefa ao clicar no botão
+    // Adiciona a tarefa ao clicar no botão "Adicionar Tarefa"
     addTaskButton.addEventListener('click', addTask);
 
-    // Adicionar a tarefa ao pressionar Enter
+    // Adiciona a tarefa ao pressionar a tecla "Enter" no campo de entrada
     taskInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            addTask();
+        if (e.key === 'Enter') { // Verifica se a tecla pressionada é "Enter"
+            addTask(); // Chama a função addTask para adicionar a tarefa
         }
     });
 
-    // Remover a tarefa ao clicar no botão de exclusão
+    // Evento para remover a tarefa ao clicar no botão "Excluir"
     taskList.addEventListener('click', (e) => {
-        if (e.target.classList.contains('deleteButton')) {
-            e.target.parentElement.remove();
+        if (e.target.classList.contains('deleteButton')) { // Verifica se o elemento clicado tem a classe "deleteButton"
+            e.target.parentElement.remove(); // Remove o elemento pai (li) da tarefa da lista
         }
     });
 });

@@ -1,79 +1,88 @@
+/* Estilos gerais para o corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: Arial, sans-serif; /* Define uma fonte sans-serif para um visual mais moderno */
+    background-color: #f4f4f4; /* Fundo leve para contraste com o container */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    display: flex; /* Centraliza o conteúdo da página */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ajusta a altura para a visualização completa */
 }
 
+/* Estilos para o container principal */
 .container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
+    background-color: #fff; /* Fundo branco para o container */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar o container */
+    padding: 20px; /* Espaçamento interno para os elementos */
+    width: 300px; /* Largura fixa do container */
 }
 
+/* Estilo para o título */
 h1 {
-    margin-top: 0;
-    color: #333;
+    margin-top: 0; /* Remove margem superior */
+    color: #333; /* Cor escura para contraste */
 }
 
+/* Estilo para o campo de entrada da tarefa */
 #taskInput {
-    width: calc(100% - 90px);
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: calc(100% - 90px); /* Ajusta a largura considerando o botão */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 4px; /* Bordas arredondadas */
 }
 
+/* Estilo para o botão de adicionar tarefa */
 #addTaskButton {
-    width: 80px;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #28a745;
-    color: #fff;
-    cursor: pointer;
+    width: 80px; /* Largura fixa para alinhamento com o campo de entrada */
+    padding: 10px; /* Espaçamento interno */
+    border: none; /* Remove borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    background-color: #28a745; /* Cor verde para destaque */
+    color: #fff; /* Cor do texto branca */
+    cursor: pointer; /* Indica que é clicável */
 }
 
 #addTaskButton:hover {
-    background-color: #218838;
+    background-color: #218838; /* Cor mais escura ao passar o mouse */
 }
 
+/* Estilos para a lista de tarefas */
 #taskList {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 0;
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0; /* Remove o preenchimento padrão */
+    margin: 20px 0 0; /* Margem superior para separação do botão */
 }
 
+/* Estilo para cada item da lista de tarefas */
 #taskList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    padding: 10px;
+    display: flex; /* Flexbox para alinhamento horizontal */
+    justify-content: space-between; /* Espaço entre texto e botão */
+    align-items: center; /* Centraliza os itens verticalmente */
+    background-color: #f9f9f9; /* Fundo leve */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 4px; /* Bordas arredondadas */
+    margin-bottom: 10px; /* Espaço entre itens */
+    padding: 10px; /* Espaçamento interno */
 }
 
+/* Estilo para o botão de exclusão */
 #taskList li button {
-    border: none;
-    background-color: #dc3545;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+    border: none; /* Remove borda padrão */
+    background-color: #dc3545; /* Cor vermelha para destacar exclusão */
+    color: #fff; /* Texto branco para contraste */
+    padding: 5px 10px; /* Espaçamento interno do botão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Indica que é clicável */
 }
 
 #taskList li button:hover {
-    background-color: #c82333;
+    background-color: #c82333; /* Cor mais escura ao passar o mouse */
 }
 
+/* Estilo para o texto da tarefa */
 #taskList li span {
-    flex: 1;
-    margin-right: 10px;
+    flex: 1; /* Expande o texto para ocupar o máximo de espaço */
+    margin-right: 10px; /* Espaço entre o texto e o botão */
 }
