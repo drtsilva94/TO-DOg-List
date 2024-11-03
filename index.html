@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO DO</title>
+    <!-- Configuração básica do documento HTML -->
+    <meta charset="UTF-8"><!-- Define a codificação de caracteres para o padrão UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Responsividade para dispositivos móveis -->
+    <title>TO DO</title><!-- Título da página que aparecerá na aba do navegador -->
+
+     <!-- Link para o arquivo de estilos CSS externo -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Container principal da aplicação -->
     <div class="container">
+        <!-- Título principal da lista de tarefas -->
         <h1>TO DO</h1>
+
+        <!-- Campo de entrada para o usuário digitar uma nova tarefa -->
         <input type="text" id="taskInput" placeholder="Digite uma tarefa...">
+
+        <!-- Botão para adicionar a tarefa digitada acima -->
         <button id="addTaskButton">Adicionar Tarefa</button>
+
+         <!-- Lista não ordenada onde as tarefas serão exibidas -->
         <ul id="taskList"></ul>
     </div>
+    
+    <!-- Link para o arquivo JavaScript que controla a lógica do TO DO -->
     <script src="script.js"></script>
 </body>
 </html>
