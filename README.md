@@ -40,6 +40,15 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou um 
 4. Push para a branch (git push origin feature/nova-funcionalidade).
 5. Abra um Pull Request.
 
+## Capturas de Tela
+
+### Tela Inicial
+![Tela Inicial](images/todoglist1.png)
+
+### Tabuleiro Carregado com Nível de Dificuldade
+![Tarefas adicionadas](images/todoglist2.png)
+
+
 ## Licença
 
 Este projeto é licenciado sob a [MIT License](LICENSE).
