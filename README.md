@@ -1,3 +1,5 @@
+![logo](images/todoglist3.png)
+
 # ToDogList
 
 Uma aplicação simples de lista de tarefas ("To-Do List") desenvolvida com HTML, CSS e JavaScript. Esta aplicação permite que os usuários adicionem, visualizem e excluam tarefas de forma intuitiva e prática.
