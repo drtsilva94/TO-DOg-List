@@ -86,3 +86,14 @@ h1 {
     flex: 1; /* Expande o texto para ocupar o máximo de espaço */
     margin-right: 10px; /* Espaço entre o texto e o botão */
 }
+
+/* NOVO: estilo para tarefa concluída */
+.completed {
+    text-decoration: line-through; /* Risca o texto */
+    opacity: 0.6; /* Deixa um pouco mais suave */
+}
+
+/* NOVO: mostra que o texto da tarefa pode ser clicado */
+.taskText {
+    cursor: pointer;
+}

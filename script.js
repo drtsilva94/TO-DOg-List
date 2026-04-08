@@ -18,11 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // NOVO: Criar elemento visual da tarefa
-    function createTaskElement(taskText, index) {
+    function createTaskElement(task, index) {
         const li = document.createElement('li');
 
         li.innerHTML = `
-            <span>${taskText}</span>
+            <span class="taskText ${task.completed ? 'completed' : ''}" data-index="${index}">
+                ${task.text}
+            </span>
             <button class="deleteButton" data-index="${index}">Excluir</button>
         `;
 
@@ -61,15 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
     */
 
 
-    //NOVO addTask (com salvamento)
-  
+    // NOVO: addTask com salvamento no localStorage
     function addTask() {
         const taskText = taskInput.value.trim();
         if (taskText === '') return;
 
-        tasks.push(taskText);     // salva no array
-        saveTasks();              // salva no navegador
-        renderTasks();            // atualiza a tela
+        tasks.push({
+            text: taskText,
+            completed: false
+        });
+
+        saveTasks();
+        renderTasks();
 
         taskInput.value = '';
     }
@@ -95,7 +100,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     */
 
-    
+    // NOVO: clique na lista
+    taskList.addEventListener('click', (e) => {
+
+        // Remover tarefa
+        if (e.target.classList.contains('deleteButton')) {
+            const index = parseInt(e.target.getAttribute('data-index'));
+
+            tasks.splice(index, 1);
+            saveTasks();
+            renderTasks();
+        }
+
+        // Marcar/desmarcar como concluída
+        if (e.target.classList.contains('taskText')) {
+            const index = parseInt(e.target.getAttribute('data-index'));
+
+            tasks[index].completed = !tasks[index].completed;
+            saveTasks();
+            renderTasks();
+        }
+    });
+
+
+
+    /*
     // NOVO: Remover + salvar
     
     taskList.addEventListener('click', (e) => {
@@ -108,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderTasks();          // atualiza tela
         }
     });
+    */
 
     
     //NOVO: carregar ao abrir
