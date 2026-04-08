@@ -1,10 +1,47 @@
 // Aguarda o carregamento completo do conteúdo HTML antes de executar o JavaScript
 document.addEventListener('DOMContentLoaded', () => {
+
     // Seleciona os elementos da página
     const taskInput = document.getElementById('taskInput'); // Campo de entrada para a nova tarefa
     const addTaskButton = document.getElementById('addTaskButton'); // Botão para adicionar tarefas
     const taskList = document.getElementById('taskList'); // Lista onde as tarefas serão exibidas
 
+
+    // NOVO: Array para armazenar tarefas
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+
+    // NOVO: Salvar tarefas no navegador
+    function saveTasks() {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+
+    // NOVO: Criar elemento visual da tarefa
+    function createTaskElement(taskText, index) {
+        const li = document.createElement('li');
+
+        li.innerHTML = `
+            <span>${taskText}</span>
+            <button class="deleteButton" data-index="${index}">Excluir</button>
+        `;
+
+        return li;
+    }
+
+
+    // NOVO: Renderizar lista completa
+    function renderTasks() {
+        taskList.innerHTML = '';
+
+        tasks.forEach((task, index) => {
+            const li = createTaskElement(task, index);
+            taskList.appendChild(li);
+        });
+    }
+
+
+    /*
     // Função para adicionar uma nova tarefa
     function addTask() {
         const taskText = taskInput.value.trim(); // Obtém o texto da tarefa e remove espaços extras
@@ -21,6 +58,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Limpa o campo de entrada após adicionar a tarefa
         taskInput.value = '';
     }
+    */
+
+
+    //NOVO addTask (com salvamento)
+  
+    function addTask() {
+        const taskText = taskInput.value.trim();
+        if (taskText === '') return;
+
+        tasks.push(taskText);     // salva no array
+        saveTasks();              // salva no navegador
+        renderTasks();            // atualiza a tela
+
+        taskInput.value = '';
+    }
+
+
 
     // Adiciona a tarefa ao clicar no botão "Adicionar Tarefa"
     addTaskButton.addEventListener('click', addTask);
@@ -32,10 +86,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /*
     // Evento para remover a tarefa ao clicar no botão "Excluir"
     taskList.addEventListener('click', (e) => {
         if (e.target.classList.contains('deleteButton')) { // Verifica se o elemento clicado tem a classe "deleteButton"
             e.target.parentElement.remove(); // Remove o elemento pai (li) da tarefa da lista
         }
     });
+    */
+
+    
+    // NOVO: Remover + salvar
+    
+    taskList.addEventListener('click', (e) => {
+        if (e.target.classList.contains('deleteButton')) {
+
+            const index = e.target.getAttribute('data-index');
+
+            tasks.splice(index, 1); // remove do array
+            saveTasks();            // atualiza localStorage
+            renderTasks();          // atualiza tela
+        }
+    });
+
+    
+    //NOVO: carregar ao abrir
+   
+    renderTasks();
+
 });
