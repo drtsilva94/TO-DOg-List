@@ -33,14 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // NOVO: Renderizar lista completa
-    function renderTasks() {
-        taskList.innerHTML = '';
+function renderTasks() {
+    taskList.innerHTML = '';
 
-        tasks.forEach((task, index) => {
-            const li = createTaskElement(task, index);
-            taskList.appendChild(li);
-        });
-    }
+    // Cria uma cópia do array para não bagunçar a ordem original diretamente
+    const sortedTasks = [...tasks].sort((a, b) => {
+        // Tarefas não concluídas ficam antes das concluídas
+        return a.completed - b.completed;
+    });
+
+    sortedTasks.forEach((task) => {
+        // Pega o índice real da tarefa no array original
+        const originalIndex = tasks.indexOf(task);
+
+        const li = createTaskElement(task, originalIndex);
+        taskList.appendChild(li);
+    });
+}
 
 
     /*
@@ -68,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskText = taskInput.value.trim();
         if (taskText === '') return;
 
-        tasks.push({
+        tasks.unshift({
             text: taskText,
             completed: false
         });
