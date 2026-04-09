@@ -3,25 +3,48 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Responsividade para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TO DO</title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Container principal da aplicação -->
-    <div class="container">
 
-        <h1>TO DO</h1>
+    <!-- layout geral -->
+    <div class="app-layout">
 
-        <input type="text" id="taskInput" placeholder="Digite uma tarefa...">
+    <!-- AGENDA / SEMANA -->
+    <div class="week-section">
+        <div class="week-container">
+            <h1>Semana</h1>
 
-        <button id="addTaskButton">Adicionar Tarefa</button>
-
-         <!-- Lista não ordenada onde as tarefas serão exibidas -->
-        <ul id="taskList"></ul>
+            <div class="week-grid">
+                <div class="day-card">Segunda</div>
+                <div class="day-card">Terça</div>
+                <div class="day-card">Quarta</div>
+                <div class="day-card">Quinta</div>
+                <div class="day-card">Sexta</div>
+                <div class="day-card">Sábado</div>
+                <div class="day-card">Domingo</div>
+            </div>
+        </div>
     </div>
-    
+
+    <!-- TO DO -->
+    <div class="todo-section">
+        <div class="container">
+
+            <h1>TO DO</h1>
+
+            <input type="text" id="taskInput" placeholder="Digite uma tarefa...">
+
+            <button id="addTaskButton">Adicionar Tarefa</button>
+
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+
+</div>
     <!-- Link para o arquivo JavaScript que controla a lógica do TO DO -->
     <script src="script.js"></script>
 </body>

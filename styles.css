@@ -7,7 +7,7 @@ body {
     display: flex; /* Centraliza o conteúdo da página */
     justify-content: center; 
     align-items: flex-start; /* Centraliza verticalmente */
-    height: 100vh; /* Ajusta a altura para a visualização completa */
+    min-height: 100vh; /* Ajusta a altura para a visualização completa */
     box-sizing: border-box;
 }
 
@@ -98,4 +98,51 @@ h1 {
 /* NOVO: mostra que o texto da tarefa pode ser clicado */
 .taskText {
     cursor: pointer;
+}
+
+
+
+/* layout lado a lado */
+
+
+.app-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* seções */
+.todo-section {
+    flex: 1;
+}
+
+.week-section {
+    flex: 1;
+}
+
+/* container da semana */
+.week-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 1000px;
+}
+
+/* grid dos dias */
+.week-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+/* cada dia */
+.day-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 16px 10px;
+    text-align: center;
+    font-weight: bold;
+    min-width: 100px;
 }
