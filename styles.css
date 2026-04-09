@@ -3,11 +3,12 @@ body {
     font-family: Arial, sans-serif; /* Define uma fonte sans-serif para um visual mais moderno */
     background-color: #f4f4f4; /* Fundo leve para contraste com o container */
     margin: 0; /* Remove a margem padrão */
-    padding: 0; /* Remove o preenchimento padrão */
+    padding: 20px; /* Remove o preenchimento padrão */
     display: flex; /* Centraliza o conteúdo da página */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; 
+    align-items: flex-start; /* Centraliza verticalmente */
     height: 100vh; /* Ajusta a altura para a visualização completa */
+    box-sizing: border-box;
 }
 
 /* Estilos para o container principal */
@@ -17,6 +18,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar o container */
     padding: 20px; /* Espaçamento interno para os elementos */
     width: 300px; /* Largura fixa do container */
+    
 }
 
 /* Estilo para o título */
